@@ -1,28 +1,25 @@
 'use strict';
 
-const box = document.querySelector('.box'),
-      btn = document.querySelector('button');
+function User(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function() {
+        console.log(`Hello ${this.name}`);
+    };
+}
 
-// const width = box.clientWidth,
-//       height = box.clientHeight;
+User.prototype.exit = function() {
+    console.log(`Пользователь ${this.name} ушел`);
+};
 
-// const width = box.offsetWidth,
-//       height = box.offsetHeight;
+const ivan = new User('Ivan', 28);
+const alex = new User('Alex', 20);
 
-const width = box.scrollWidth,
-      height = box.scrollHeight;
+ivan.exit();
 
-console.log(width, height);
+ivan.hello();
+alex.hello();
 
-btn.addEventListener('click', () => {
-    // box.style.height = box.scrollHeight + 'px';  // inline - стили, появляются внутри верстки и проиписываются в тег
-    console.log(box.scrollTop);
-});
-
-console.log(box.getBoundingClientRect().top);
-
-const style = window.getComputedStyle(box);
-
-console.log(style.display);
-
-console.log(document.documentElement.scrollTop);
+console.log(ivan);
+console.log(alex);
