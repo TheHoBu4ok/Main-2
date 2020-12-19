@@ -1,26 +1,54 @@
 'use strict';
 
-const inputRub = document.querySelector('#rub'),
-      inputUsd = document.querySelector('#usd');
+// console.log('Запрос данных...');
 
-inputRub.addEventListener('input', () => {
-    const request = new XMLHttpRequest();
+// const req = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log('Подготовка данных...');
+    
+//         const product = {
+//             name: 'TV',
+//             price: 2000,
+//         };
 
-    request.open('GET', 'current.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
+//         resolve(product);
+//     }, 2000);
+// });
 
-    request.addEventListener('load', () => {
-        if (request.status === 200) {
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-        } else {
-            inputUsd.value = "Что-то пошло не так";
-        }
+// // положительный исход промиса
+// req.then((product) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             product.status = 'order';
+//             resolve(product);
+//         }, 2000);
+//     });
+// }).then((data) => {
+//     data.modify = true;
+//     return data;
+// }).then(data => {
+//     console.log(data);
+// }).catch(() => {
+//     console.error('Произошла ошибка');
+// }).finally(() => {
+//     console.log('finally');
+// });
+
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time);
     });
+};
 
-    // status
-    // statusText
-    // response
-    // readyState 
+// test(1000).then(() => console.log('1000 ms'));
+// test(2000).then(() => console.log('2000 ms'));
+
+// Promise как глоб. объект, all используется для проверки, что все промисы уже выполнились
+// Promise.all([test(1000)], test(2000)).then(() => {
+//     console.log('All');
+// });
+
+// Race выполняет действия, сразу же после того, как первый промис отработал правильно
+Promise.race([test(1000)], test(2000)).then(() => {
+    console.log('All');
 });
