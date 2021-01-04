@@ -1,44 +1,35 @@
 'use strict';
 
-// localStorage.setItem('number', 5);
+// new RegExp('pattern', 'flags');
+// /pattern/f
 
-// // localStorage.removeItem('number');
-// localStorage.clear();
+// const ans = prompt('Введите ваше число');
 
-// console.log(localStorage.getItem('number'));
+// const reg = /\d/g;
+// console.log(ans.match(reg));
 
-const checkbox = document.querySelector('#checkbox'),
-      form = document.querySelector('form'),
-      change = document.querySelector('#color');
+const str = 'My name is R2D2';
 
-if (localStorage.getItem('isChecked')) {
-    checkbox.checked = true;
-}
+console.log(str.match(/\W/ig));
 
-if (localStorage.getItem('bg') === 'changed') {
-    form.style.backgroundColor = 'red';
-}
+// \D не числа
+// \W не буквы
 
-checkbox.addEventListener('change', () => {
-    localStorage.setItem('isChecked', true);
-});
+// \d поиск цифр
+// \w поиск слов
+// \s поиск всех пробелов
 
-change.addEventListener('click', () => {
-    if (localStorage.getItem('bg') === 'changed') {
-        localStorage.removeItem('bg');
-        form.style.backgroundColor = '#fff';    // белый цвет
-    } else {
-        localStorage.setItem('bg', 'changed');
-        form.style.backgroundColor = 'red';
-    }
-});
+// test() - true or false
+// i - не зависит от регистра
+// g - глобальный изет все совпадения
+// m - поиск в нескольких строках
 
-const persone = {
-    name: 'Alex',
-    age: 25
-};
+// console.log(ans.search(reg));
+// console.log(ans.match(reg));
 
-const serializedPersone = JSON.stringify(persone);
-localStorage.setItem('alex', serializedPersone);
+// const pass = prompt('Password'); 
 
-console.log(JSON.parse(localStorage.getItem('alex')));
+// . означает все символы в выражении
+// console.log(pass.replace(/./g, '*'));
+
+// console.log('12-34-56'.replace(/-/g, ':'));
