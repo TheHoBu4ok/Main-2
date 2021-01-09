@@ -1,25 +1,24 @@
 'use strict';
 
-const app = 123;
+// try {
+//     console.log('Normal');      // Позволяет дальнейшему коду продолжать работу, даже если появилась ошибка
+//     console.log(a);             // т.е. выполняется ветка ошибки catch, где ошибок быть не может
+//     console.log('result');      // аргумент error - возвращает текст ошибки
+// } catch(error) {                 
+//     console.log(error.name);
+//     console.log(error.message);          
+//     console.log(error.stack);          
+// } finally {
 
-const number = 1;
+// }                             
 
-(function(){            // Анонимная самовызывающаяся функция
-    let number = 2;     // Первый подход создания модуля
-    console.log(number);
-    console.log(number + 3);
-}());
+// console.log('Still normal');
 
-console.log(number);
+try {
+    document.querySelector('.active').addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('click');
+    });
+} catch(e) {}
 
-const user = (function(){       // Второй подход
-    const privat = function() {
-        console.log('I am privat!');
-    };
-
-    return {
-        sayHello: privat
-    };
-}());
-
-user.sayHello();
+console.log('normal');
