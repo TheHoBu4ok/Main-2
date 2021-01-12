@@ -1,24 +1,30 @@
 'use strict';
 
-// try {
-//     console.log('Normal');      // Позволяет дальнейшему коду продолжать работу, даже если появилась ошибка
-//     console.log(a);             // т.е. выполняется ветка ошибки catch, где ошибок быть не может
-//     console.log('result');      // аргумент error - возвращает текст ошибки
-// } catch(error) {                 
-//     console.log(error.name);
-//     console.log(error.message);          
-//     console.log(error.stack);          
-// } finally {
+// function* generator() {
+//     yield 'S';
+//     yield 'c';
+//     yield 'r';
+//     yield 'i';
+//     yield 'p';
+//     yield 't';
+// }
 
-// }                             
+// const str = generator();
 
-// console.log('Still normal');
+// console.log(str.next().value);
 
-try {
-    document.querySelector('.active').addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log('click');
-    });
-} catch(e) {}
+function* count(n) {
+    for (let i = 0; i < n; i++) {
+        yield i;
+    }
+}
 
-console.log('normal');
+for (let k of count(7)) {
+    console.log(k);
+}
+
+// const counter = count(7);
+
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
