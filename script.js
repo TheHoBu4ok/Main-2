@@ -1,35 +1,34 @@
 "use strict";
 
-const btn = document.querySelector('.btn'),
-      elem = document.querySelector('.box');  
-let pos = 0;
+// console.log(1);
 
-// function myAnimation() {
-//     let pos = 0;
+// setTimeout(() => {
+//     console.log('timeout');
+// }, 2000);
 
-//     const id = setInterval(frame, 10);
-//     function frame() {
-//         if (pos == 300) {
-//             clearInterval(id);
-//         } else {
-//             pos++;
-//             elem.style.top = pos + "px";
-//             elem.style.left = pos + 'px';
-//         }
+// setTimeout(() => {
+//     console.log('timeout_4000');
+// }, 4000);
+
+// console.log(2);
+
+// Call Stack - вызовы функций, которые выполняются в данный момент
+// Web Apis - спец. хранилище для хранения промежуточных данных
+// Callback Queue - очередь событий и функций во время работы
+
+// let k = 0;
+
+// function count() {
+//     for (let i = 0; i < 1e9; i++) {
+//         k++;
 //     }
+//     alert('done');
 // }
 
-function myAnimation() {
-    pos++;
-    elem.style.top = pos + "px";
-    elem.style.left = pos + 'px';
+// count();
 
-    if (pos < 300) {
-        requestAnimationFrame(myAnimation);
-    }
-}
+setTimeout(() => {
+    console.log(1);
+}, 0);  // при установке 0 по умолчанию браузер устанавливает 4 мс, во избежания некорректной работы в других браузерах
 
-btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
-
-let id = requestAnimationFrame(myAnimation);
-cancelAnimationFrame(id);
+console.log(2);
